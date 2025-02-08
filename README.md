@@ -1,9 +1,9 @@
 # Web-Scraping
 
 ## Project Overview
-This project involved developing a web scraping solution to gather job postings from CareerJet based on user-defined search criteria.
+This project involved developing a web scraping solution to gather job postings from `CareerJet` web page based on user-defined search criteria.
 
-The search criteria is based on `Job position`, `Job location` and `Number of pages`.
+The search criteria is based on `Job position`, `Job location` and `Number of searched pages`.
 
 This project is done on Jupyter Notebook (`omedina_WebScraping.ipynb`)
 
