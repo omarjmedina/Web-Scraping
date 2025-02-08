@@ -80,3 +80,18 @@ The CSV file is saved in the format: **"job_postings_`JobPosition`_`JobLocation`
 - **Clear Structure and Data Output:**
 
   The project outputs structured, clean data in CSV format, which can be used for further analysis or automated processes. The code is modular, making it easier to adapt for future use cases.
+
+## Ideas for Improvement
+
+- **Improved Error Logging:**
+
+  Future improvements could include adding more sophisticated logging, storing errors in a separate log file for easier debugging and monitoring.
+
+- **Multithreading for Faster Scraping:**
+
+  To speed up the scraping process, I could implement multithreading or multiprocessing, allowing multiple pages to be scraped concurrently. This would significantly reduce the time needed to collect data.
+
+- **Scalability:**
+
+  The scraper could be modified to handle large-scale scraping tasks, such as scraping data for multiple positions or locations in parallel. Integrating a database (e.g., SQLite or PostgreSQL) could allow storing 
+  data for later analysis.
