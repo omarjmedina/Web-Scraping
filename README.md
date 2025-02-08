@@ -37,6 +37,12 @@ The CSV file is saved in the format: job_postings_`JobPosition`_`JobLocation` _`
 
 ## Testing the Code
 
+We tested the code with the following user-defined criteria:
+
+Job Title:`Data Analyst`
+Job Location: `New York`
+Num of Searched Pages: `3`
+
 <img src="https://github.com/user-attachments/assets/16b2a4f2-1453-4a5b-a012-87312ac1deb1" width="700">
 
 
