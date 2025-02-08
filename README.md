@@ -3,7 +3,7 @@
 ## Project Overview
 This project involved developing a web scraping solution to gather job postings from `CareerJet` web page based on user-defined search criteria.
 
-The search criteria is based on `Job position`, `Job location` and `Number of searched pages`.
+The search criteria is based on `Job Position`, `Job Location` and `Number of Searched Pages`.
 
 This project is done on Jupyter Notebook (`omedina_WebScraping.ipynb`)
 
@@ -45,7 +45,7 @@ Num of Searched Pages: `3`
 
 <img src="https://github.com/user-attachments/assets/16b2a4f2-1453-4a5b-a012-87312ac1deb1" width="700">
 
-
+The code generated the CSV file 
 
 
   
