@@ -5,7 +5,7 @@ This project involved developing a web scraping solution to gather job postings 
 
 The search criteria is based on `Job Position`, `Job Location` and `Number of Searched Pages`.
 
-The project is done on Jupyter Notebook (`omedina_WebScraping.ipynb`) attached to this repository.
+This project is done on Jupyter Notebook (`omedina_WebScraping.ipynb`) attached to this repository.
 
 ## Objective
 
@@ -67,6 +67,16 @@ The CSV file is saved in the format: **"job_postings_`JobPosition`_`JobLocation`
 
     To mitigate issues with rate limiting (where the server might block multiple requests in a short time), I introduced a `sleep delay` between requests. This           helped prevent the IP from being blocked for making too many requests too quickly.
 
+## What Sets This Project Apart?
 
+- **Error Handling and Robustness:**
 
-  
+  Unlike many beginner-level scrapers, I took steps to ensure the application doesn't fail if an expected field is missing. Using `if` checks allowed the scraper to handle edge cases smoothly.
+
+- **Dynamic Page Handling:**
+
+  The scraper can handle multiple pages by adjusting the URL query string dynamically, making it flexible for large data sets.
+
+- **Clear Structure and Data Output:**
+
+  The project outputs structured, clean data in CSV format, which can be used for further analysis or automated processes. The code is modular, making it easier to adapt for future use cases.
