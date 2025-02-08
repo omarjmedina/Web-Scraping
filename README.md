@@ -23,7 +23,7 @@ The goal was to scrape job postings for a given Job position and Job location, a
 
 I used Python’s `requests` library to fetch the HTML content of the web pages and `BeautifulSoup` to parse the HTML and extract the required elements. The `csv module` was used to save the results to a CSV file. 
 
-The CSV file is saved in the format: job_postings_`JobPosition`_`JobLocation` _`CurrentDate`.csv"
+The CSV file is saved in the format: **"job_postings_`JobPosition`_`JobLocation` _`CurrentDate`.csv"**
 
 ## Function Breakdown
 
@@ -31,13 +31,15 @@ The CSV file is saved in the format: job_postings_`JobPosition`_`JobLocation` _`
 
     <img src="https://github.com/user-attachments/assets/431d00bc-f01f-43a2-a3b0-d1867a355c2a" width="700">
 
-- `scrape_jobs:` Scrapes job data from the generated URLs across multiple pages, processes the HTML, and writes the data to a CSV file. I also incorporated error handling and logging to track potential issues during scraping (e.g., page load failures or missing data).
+- `scrape_jobs:` Scrapes job data from the generated URLs across multiple pages, processes the HTML, and writes the data to a CSV file.
+
+  I also incorporated error handling and logging to track potential issues during scraping (e.g., page load failures or missing data).
   
     <img src="https://github.com/user-attachments/assets/ea6b3e06-28d5-4871-b172-05173b4c0bba" width="700">
 
 ## Testing the Code
 
-- We tested the code with the following user-defined search criteria:
+- I tested the code with the following user-defined search criteria:
 
     Job Title:`Data Analyst`
 
@@ -50,6 +52,20 @@ The CSV file is saved in the format: job_postings_`JobPosition`_`JobLocation` _`
 - The code generated the CSV file `job_postings_Data_Analyst_New_York_2025-02-08.csv` with a total of 39 records out of 3 searched pages: 
 
     ![image](https://github.com/user-attachments/assets/f67d3a34-3e17-4bd9-8b4d-a820d87cadc6)
+
+## Challenges Faced
+
+- **Handling Missing Data:**
+
+    Initially, I encountered issues with missing job details, such as company names and salaries. Some job postings did not have all the required data. To overcome     this, I added fallback logic that assigns `None` when specific fields are not found, ensuring the program doesn't crash.
+
+- **Dynamic HTML Structure:**
+
+    CareerJet’s HTML structure wasn’t uniform across all job postings, making it challenging to identify consistent tags for scraping. I used CSS classes like         `company`, `salary`, and `location`, which I tailored based on trial and error until I found the most reliable selectors.
+
+- **Rate Limiting and IP Blocking:**
+
+    To mitigate issues with rate limiting (where the server might block multiple requests in a short time), I introduced a `sleep delay` between requests. This           helped prevent the IP from being blocked for making too many requests too quickly.
 
 
 
