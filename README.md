@@ -19,7 +19,7 @@ Careerjet is a job search engine designed to simplify the process of finding emp
 
 ## Web Scraping Tools
 
-The goal was to scrape job postings for a given Job position and Job location, across multiple pages. The output should include relevant information such as job Title, Company, Job Location, Salary, Posting Time, and Job Post URL.
+The goal was to scrape job postings for a given Job position and Job location, across multiple pages. The output should include relevant information such as `Job Title`, `Company`, `Job Location`, `Post Time`, `Extract Date`, `Salary`, and `Job URL`.
 
 I used Python’s `requests` library to fetch the HTML content of the web pages and `BeautifulSoup` to parse the HTML and extract the required elements. The `csv module` was used to save the results to a CSV file. 
 
@@ -47,7 +47,7 @@ The CSV file is saved in the format: job_postings_`JobPosition`_`JobLocation` _`
 
     <img src="https://github.com/user-attachments/assets/16b2a4f2-1453-4a5b-a012-87312ac1deb1" width="700">
 
-- The code generated the CSV file `job_postings_Data_Analyst_New_York_2025-02-08.csv` (attached to this repo) with a total of 39 records out of 3 searched pages: 
+- The code generated the CSV file `job_postings_Data_Analyst_New_York_2025-02-08.csv` with a total of 39 records out of 3 searched pages: 
 
     ![image](https://github.com/user-attachments/assets/f67d3a34-3e17-4bd9-8b4d-a820d87cadc6)
 
