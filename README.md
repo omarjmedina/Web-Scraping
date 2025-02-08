@@ -25,29 +25,21 @@ I used Python’s `requests` library to fetch the HTML content of the web pages 
 
 The CSV file is saved in the format: job_postings_`JobPosition`_`JobLocation` _`CurrentDate`.csv"
 
+## Function Breakdown
+
+- `generate_url:` Generates the URL dynamically based on the input parameters (position, location, and page number).
+
+    <img src="https://github.com/user-attachments/assets/431d00bc-f01f-43a2-a3b0-d1867a355c2a" width="700">
+
+- `scrape_jobs:` Scrapes job data from the generated URLs across multiple pages, processes the HTML, and writes the data to a CSV file. I also incorporated error handling and logging to track potential issues during scraping (e.g., page load failures or missing data).
   
-### Data Visualization
-- 📊 **Histogram of Likes** revealed the overall engagement distribution across posts.
-- 📌 **Boxplot of Likes per Category** highlighted which content types received more likes.
-- Choosing the best visualization was a challenge, but testing different graphs helped identify the most informative ones.
+    <img src="https://github.com/user-attachments/assets/ea6b3e06-28d5-4871-b172-05173b4c0bba" width="700">
 
-<img src="https://github.com/user-attachments/assets/6a561ed3-e580-4344-8912-0ea62f03da49" width="400">
-<img src="https://github.com/user-attachments/assets/70cb0073-15a8-4e28-a785-b7d310d0373c" width="400">
+## Testing the Code
 
-### Statistical Analysis & Insights
-- The **average number of likes per post** was **~5000**.
-- **Food, Fashion, and Fitness** categories received the highest engagement, indicating users prefer these content types.
-- **Travel and Culture** posts had lower engagement, suggesting they might require better captions, hashtags, or posting times to improve reach.
-
-![image](https://github.com/user-attachments/assets/73c40af6-b891-43bc-9c22-8b0ce7e1e2e2)
+<img src="https://github.com/user-attachments/assets/16b2a4f2-1453-4a5b-a012-87312ac1deb1" width="700">
 
 
-## What Sets This Project Apart?
-✅ **Realistic Instagram Analytics Simulation**: The dataset structure mirrors real social media insights, making the analysis practical for businesses.  
-✅ **Actionable Insights for Social Media Strategy**: Helps brands & influencers decide which content types to focus on.  
-✅ **End-to-End Data Pipeline**: Covers data generation, cleaning, visualization, and analysis in a single project.  
 
-## Future Improvements & Business Applications
-📊 **Time-Based Analysis**: Study engagement trends based on posting time & day of the week.  
-🤖 **Machine Learning for Prediction**: Predict which posts will go viral based on category and past likes.  
-📈 **Deeper Instagram Metrics**: Extend analysis to comments, shares, and follower growth for richer insights.  
+
+  
