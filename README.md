@@ -5,7 +5,7 @@ This project involved developing a web scraping solution to gather job postings 
 
 The search criteria is based on `Job Position`, `Job Location` and `Number of Searched Pages`.
 
-This project is done on Jupyter Notebook (`omedina_WebScraping.ipynb`)
+The project is done on Jupyter Notebook (`omedina_WebScraping.ipynb`) attached to this repository.
 
 ## Objective
 
@@ -37,15 +37,20 @@ The CSV file is saved in the format: job_postings_`JobPosition`_`JobLocation` _`
 
 ## Testing the Code
 
-We tested the code with the following user-defined criteria:
+- We tested the code with the following user-defined search criteria:
 
-Job Title:`Data Analyst`
-Job Location: `New York`
-Num of Searched Pages: `3`
+    Job Title:`Data Analyst`
 
-<img src="https://github.com/user-attachments/assets/16b2a4f2-1453-4a5b-a012-87312ac1deb1" width="700">
+    Job Location: `New York`
 
-The code generated the CSV file 
+    Num of Searched Pages: `3`
+
+    <img src="https://github.com/user-attachments/assets/16b2a4f2-1453-4a5b-a012-87312ac1deb1" width="700">
+
+- The code generated the CSV file `job_postings_Data_Analyst_New_York_2025-02-08.csv` (attached to this repo) with a total of 39 records out of 3 searched pages: 
+
+    ![image](https://github.com/user-attachments/assets/f67d3a34-3e17-4bd9-8b4d-a820d87cadc6)
+
 
 
   
