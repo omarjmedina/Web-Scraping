@@ -79,7 +79,7 @@ The CSV file is saved in the format: **"job_postings_`JobPosition`_`JobLocation`
 
 - **Clear Structure and Data Output:**
 
-  The project outputs structured, clean data in CSV format, which can be used for further analysis or automated processes. The code is modular, making it easier to adapt for future use cases.
+  The project outputs structured and clean data in CSV format, which can be used for further analysis or automated processes. The code is modular, making it easier to adapt for future use cases.
 
 ## Ideas for Improvement
 
