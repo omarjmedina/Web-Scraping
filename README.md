@@ -29,13 +29,68 @@ The CSV file is saved in the format: **"job_postings_`JobPosition`_`JobLocation`
 
 - `generate_url:` Generates the URL dynamically based on the input parameters (position, location, and page number).
 
-    <img src="https://github.com/user-attachments/assets/431d00bc-f01f-43a2-a3b0-d1867a355c2a" width="700">
+```python
+# Function to generate the URL based on position, location, and page
+def generate_url(position, location, page=1):
+    base_url = "https://www.careerjet.com/jobs"
+    search_params = f"?s={position.replace(' ', '+')}&l={location.replace(' ', '+')}&p={page}"
+    return base_url + search_params
+```
 
 - `scrape_jobs:` Scrapes job data from the generated URLs across multiple pages, processes the HTML, and writes the data to a CSV file.
 
   I also incorporated error handling and logging to track potential issues during scraping (e.g., page load failures or missing data).
   
-    <img src="https://github.com/user-attachments/assets/ea6b3e06-28d5-4871-b172-05173b4c0bba" width="700">
+```python
+  # Function to scrape job postings based on position, location, and page
+def scrape_jobs(position, location, pages):
+    current_date = datetime.now().strftime("%Y-%m-%d")  # Get current date to timestamp the CSV file
+    filename = f"job_postings_{position.replace(' ', '_')}_{location.replace(' ', '_')}_{current_date}.csv"
+    
+    # Open the CSV file for writing
+    with open(filename, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow(['JobTitle', 'Company', 'JobLocation', 'PostTime', 'ExtractDate', 'Salary', 'JobURL'])  # Write the header row
+        
+        for page in range(1, pages + 1):
+            url = generate_url(position, location, page)
+            print(f'url page{page}: {url}')
+            # Send a GET request to the generated URL
+            response = requests.get(url)
+            
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+                job_listings = soup.find("ul", class_="jobs")  # Adjust selector based on actual page structure
+                job_listings = job_listings.find_all('li', class_= lambda x: x != 'cjgad-outer') #extract job listings
+
+                for job in job_listings:
+                        
+                    JobTitle = job.find('h2').find('a').text.strip() if job.find('h2') else None
+    
+                    company_tag = job.find('p', class_='company')
+                    Company = company_tag.find('a').text.strip() if company_tag and company_tag.find('a') else None
+                    
+                    JobLocation = job.find('ul', class_='location').find('li').text.strip() if job.find('ul', class_='location') else None
+                    
+                    PostTime = job.find('footer').find('ul', class_='tags').find('li').find('span').text.strip() if job.find('footer') else None
+                    
+                    ExtractDate = datetime.now().strftime("%Y-%m-%d %H:%M")
+                    
+                    Salary = job.find('ul', class_='salary').find('li').text.strip() if job.find('ul', class_='salary') else None
+                  
+                    JobURL = "https://www.careerjet.com" + job.find('h2').find('a').get('href') if job.find('h2') else None
+    
+                    values =  [JobTitle, Company, JobLocation, PostTime, ExtractDate, Salary, JobURL]
+                    if None not in values:
+                        writer.writerow(values)
+                                               
+                # Introduce a delay between requests (avoid overloading the server)
+                time.sleep(1)
+            else:
+                print(f"Failed to retrieve the page {page}. Status code: {response.status_code}")
+
+    print(f"\nJob postings saved to {filename}")
+```
 
 ## Testing the Code
 
@@ -47,11 +102,22 @@ The CSV file is saved in the format: **"job_postings_`JobPosition`_`JobLocation`
 
     Num of Searched Pages: `3`
 
-    <img src="https://github.com/user-attachments/assets/16b2a4f2-1453-4a5b-a012-87312ac1deb1" width="700">
+ ```python
+# Example usage
+JobTitle = "Data Analyst"
+Location = "New York"
+Maxpages = 3
+
+scrape_jobs(JobTitle, Location, Maxpages)
+```
+Output:
+
+![image](https://github.com/user-attachments/assets/0329e30b-fbd7-489f-a47a-ec33ec8210e3)
+
 
 - The code generated the CSV file `job_postings_Data_Analyst_New_York_2025-02-08.csv` with a total of 39 records out of 3 searched pages: 
 
-    ![image](https://github.com/user-attachments/assets/f67d3a34-3e17-4bd9-8b4d-a820d87cadc6)
+![image](https://github.com/user-attachments/assets/f67d3a34-3e17-4bd9-8b4d-a820d87cadc6)
 
 ## Challenges Faced
 
