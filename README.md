@@ -159,5 +159,5 @@ Output:
 
 - **Scalability:**
 
-  The scraper could be modified to handle large-scale scraping tasks, such as scraping data for multiple positions or locations in parallel. Integrating a database (e.g., SQLite or PostgreSQL) could allow storing 
+  The scraper could be modified to handle large-scale scraping tasks, such as scraping data for multiple positions or locations in parallel. Integrating a database (e.g., MYSQL or PostgreSQL) could allow storing 
   data for later analysis.
